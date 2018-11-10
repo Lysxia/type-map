@@ -86,14 +86,14 @@ withTypeRep
   .  (forall t. Typeable t => Typed_ x t)
   -> TypeRep -> UnTyped x
 #if MIN_VERSION_base(4,10,0)
-withTypeRep f rep =
-  case rep of
-    T.SomeTypeRep (rep :: T.TypeRep t) ->
+withTypeRep f someRep =
+  case someRep of
+    T.SomeTypeRep (rep' :: T.TypeRep t) ->
       -- We still need to unsafely coerce the kind of t to Type
       -- and Typed to UnTyped
       (unsafeCoerce
         ((\rep -> T.withTypeable rep f) :: forall a. T.TypeRep a -> Typed_ x a)
-        :: T.TypeRep t -> UnTyped x) rep
+        :: T.TypeRep t -> UnTyped x) rep'
 #else
 withTypeRep f rep =
   withTypeable (WithTypeable f :: WithTypeable x) (\_ -> rep)

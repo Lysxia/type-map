@@ -139,15 +139,15 @@ withTypeRep
   -> proxy x
   -> TypeRep -> UnTyped x
 #if MIN_VERSION_base(4,10,0)
-withTypeRep f _ rep =
-  case rep of
-    T.SomeTypeRep (rep :: T.TypeRep t) ->
+withTypeRep f _ someRep =
+  case someRep of
+    T.SomeTypeRep (rep' :: T.TypeRep t) ->
       -- We still need to unsafely coerce the kind of t to Type
       -- and Typed to UnTyped
       (unsafeCoerce
         ((\rep -> T.withTypeable rep (f (Proxy :: Proxy a)))
           :: forall a. T.TypeRep a -> Typed x a)
-        :: T.TypeRep t -> UnTyped x) rep
+        :: T.TypeRep t -> UnTyped x) rep'
 #else
 withTypeRep f _ rep =
   withTypeable (WithTypeable f :: WithTypeable x) (\_ -> rep) Proxy
