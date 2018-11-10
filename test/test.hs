@@ -7,7 +7,6 @@
 
 import Data.Proxy
 import Data.Typeable
-import Unsafe.Coerce
 
 import qualified Data.TypeMap.Internal.Dynamic as TM
 import qualified Data.TypeMap.Internal.Dynamic.Alt as TMA
@@ -21,6 +20,7 @@ idTypeRepTMA = TMA.withTypeRep rep
     rep :: forall t. Typeable t => TMA.Typed_ (TM.OfType TypeRep) t
     rep = TMA.Typed_ (typeRep (Proxy @t))
 
+main :: IO ()
 main = do
   assertEq listUnit (idTypeRepTM listUnit)
   assertEq listUnit (idTypeRepTMA listUnit)

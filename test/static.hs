@@ -18,6 +18,7 @@ v = TL.toVector l
 l :: TypeList D
 l = 0 <| True <| "" <| TL.empty
 
+main :: IO ()
 main = defaultMain
   [ testCase "List" $ do
       0 @=? TL.index @"a" l
