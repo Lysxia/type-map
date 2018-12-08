@@ -7,6 +7,7 @@
 
 import Data.TypeMap.Dynamic (TypeMap, Item)
 import qualified Data.TypeMap.Dynamic.Alt as TM
+import Data.TypeMap.Dynamic.Alt ((<:))
 
 -- At a high-level, values of type @TypeMap t@ are partial dependent maps,
 -- intuitively of type @pi (a :: Type). Maybe (t' a)@, where the function @t'@ is
@@ -47,9 +48,11 @@ one :: TypeMap S
 one = TM.insert @T t emptyS
 -- one : Bool -> False
 
--- Let us add more things.
+-- Let us add more things, using "literal-ish" syntax this time.
 three :: TypeMap S
-three = TM.insert @Integer 33 . TM.insert @String "cat" $ one
+three = one
+  <: @Integer 33
+  <: @String "cat"
 -- three :
 --   Bool    -> False
 --   String  -> "cat"
