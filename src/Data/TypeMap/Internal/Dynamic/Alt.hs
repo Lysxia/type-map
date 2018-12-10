@@ -34,15 +34,6 @@ insert v (TypeMap m) = TypeMap (Map.insert (typeRep (Proxy @t)) (coerce v) m)
     coerce :: Item x t -> Any
     coerce = unsafeCoerce
 
--- | Facilitate a literal-ish syntax:
---     empty
---       <: @t1 v1
---       <: @t2 v2
-(<:)
-  :: forall t x
-  .  Typeable t => TypeMap x -> Item x t -> TypeMap x
-(<:) tm v = insert @t v tm
-
 -- | Update an element indexed by type @t@.
 update
   :: forall t x
