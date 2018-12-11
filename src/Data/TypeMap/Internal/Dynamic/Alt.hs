@@ -34,15 +34,21 @@ insert v (TypeMap m) = TypeMap (Map.insert (typeRep (Proxy @t)) (coerce v) m)
     coerce :: Item x t -> Any
     coerce = unsafeCoerce
 
+-- What is a good fixity for (<:)?
+
 -- | Facilitate a literal-ish syntax:
---     empty
---       <: at @t1 v1
---       <: at @t2 v2
+--
+-- @
+-- 'Data.TypeMap.Dynamic.empty'
+--   '<:' 'at' @t1 v1
+--   '<:' 'at' @t2 v2
+-- @
 (<:)
   :: forall t x proxy
   .  Typeable t => TypeMap x -> (proxy t, Item x t) -> TypeMap x
 (<:) tm (_, v) = insert @t v tm
 
+-- | See @('<:')@.
 at :: forall t a
    .  Typeable t => a -> (Proxy t, a)
 at = (,) Proxy

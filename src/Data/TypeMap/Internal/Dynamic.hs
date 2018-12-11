@@ -60,10 +60,15 @@ insert t v (TypeMap m) = TypeMap (Map.insert (typeRep t) (coerce v) m)
     coerce :: Item x t -> Any
     coerce = unsafeCoerce
 
+-- What is a good fixity for (<:)?
+
 -- | Facilitate a literal-ish syntax:
---     empty
---       <: (Proxy @k1, v1)
---       <: (Proxy @k2, v2)
+--
+-- @
+-- 'empty'
+--   '<:' ('Proxy' @k1, v1)
+--   '<:' ('Proxy' @k2, v2)
+-- @
 (<:)
   :: forall t x proxy
   .  Typeable t => TypeMap x -> (proxy t, Item x t) -> TypeMap x
