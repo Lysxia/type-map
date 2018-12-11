@@ -1,6 +1,10 @@
+# 0.1.4.0
+
+- Add `(<:)` to `Dynamic`. (deepfire)
+
 # 0.1.3.0
 
-- Add `update` to `Dynamic`. Thanks to deepfire!
+- Add `update` to `Dynamic`. (deepfire)
 
 # 0.1.2.0
 
