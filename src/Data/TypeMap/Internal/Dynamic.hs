@@ -122,7 +122,7 @@ map
 map f (TypeMap m) = TypeMap (Map.mapWithKey f' m)
   where f' = withTypeRep f (Proxy :: Proxy (ItemFun x y))
 
--- | Traverse the map.
+-- | Traverse the type map. ('map' with effects.)
 traverse
   :: forall f x y
   .  Applicative f

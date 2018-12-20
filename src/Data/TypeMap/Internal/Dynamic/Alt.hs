@@ -78,6 +78,7 @@ delete
   .  Typeable t => TypeMap x -> TypeMap x
 delete (TypeMap m) = TypeMap (Map.delete (typeRep (Proxy @t)) m)
 
+-- | Map a function on all elements.
 map
   :: forall x y. (forall t. Typeable t => Item x t -> Item y t)
   -> TypeMap x -> TypeMap y
@@ -86,6 +87,7 @@ map f (TypeMap m) = TypeMap (Map.mapWithKey f' m)
     f' = withTypeRep @(ItemFun x y)
       (Typed_ (f @t) :: forall t. Typeable t => Typed_ (ItemFun x y) t)
 
+-- | Traverse the type map. ('map' with effects.)
 traverse
   :: forall f x y
   .  Applicative f
