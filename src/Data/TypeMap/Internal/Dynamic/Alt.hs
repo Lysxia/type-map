@@ -36,7 +36,7 @@ insert v (TypeMap m) = TypeMap (Map.insert (typeRep (Proxy @t)) (coerce v) m)
 
 -- What is a good fixity for (<:)?
 
--- | Facilitate a literal-ish syntax:
+-- | Infix version of 'insert' to facilitate a literal-ish syntax:
 --
 -- @
 -- 'Data.TypeMap.Dynamic.empty'

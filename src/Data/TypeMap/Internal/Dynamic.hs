@@ -62,7 +62,7 @@ insert t v (TypeMap m) = TypeMap (Map.insert (typeRep t) (coerce v) m)
 
 -- What is a good fixity for (<:)?
 
--- | Facilitate a literal-ish syntax:
+-- | Infix version of 'insert' to facilitate a literal-ish syntax:
 --
 -- @
 -- 'empty'
