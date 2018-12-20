@@ -13,8 +13,8 @@ This package includes:
   (there are actually multiple implementations with different underlying
   representations (`[]`, `Map`, `Vector`)).
 
-Both variants support arbitrary mappings between types and values, via
-defunctionalization.
+Both variants support arbitrary, user-defined mappings between types and
+values, via defunctionalization.
 
 [Example using the dynamically-typed
 interface](https://github.com/Lysxia/type-map/tree/master/examples/dynamic.hs).
