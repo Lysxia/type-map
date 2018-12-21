@@ -3,6 +3,7 @@
 {-# LANGUAGE GADTs #-}
 {-# LANGUAGE MagicHash #-}
 {-# LANGUAGE RankNTypes #-}
+{-# LANGUAGE RoleAnnotations #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 {-# LANGUAGE TypeFamilies #-}
 {-# LANGUAGE UndecidableInstances #-}
@@ -29,6 +30,8 @@ import qualified Data.Map as Map
 
 -- | Map from types @t@ of kind @*@ to values of type @Item x t@.
 newtype TypeMap x = TypeMap (Map TypeRep Any)
+
+type role TypeMap nominal
 
 -- | An extensible type family mapping types (as keys) to types of values,
 -- parameterized by types @x@.

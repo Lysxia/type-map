@@ -2,6 +2,7 @@
 {-# LANGUAGE DataKinds #-}
 {-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE PolyKinds #-}
+{-# LANGUAGE RoleAnnotations #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 {-# LANGUAGE TypeApplications #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -16,6 +17,8 @@ import Data.TypeMap.Internal.Unsafe
 
 -- | Vector-backed type-map.
 newtype TypeVector d = TypeVector (Vector Any)
+
+type role TypeVector nominal
 
 -- | Empty vector.
 empty :: TypeVector '[]

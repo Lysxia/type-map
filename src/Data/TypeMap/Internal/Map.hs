@@ -2,6 +2,7 @@
 {-# LANGUAGE DataKinds #-}
 {-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE PolyKinds #-}
+{-# LANGUAGE RoleAnnotations #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 {-# LANGUAGE TypeApplications #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -18,6 +19,8 @@ import Data.TypeMap.Internal.Unsafe
 data TypeMap d = TypeMap !Int !(TypeMap' d) !Int
 
 newtype TypeMap' d = TypeMap' (IntMap Any)
+
+type role TypeMap' nominal
 
 -- | Empty vector.
 empty :: TypeMap '[]

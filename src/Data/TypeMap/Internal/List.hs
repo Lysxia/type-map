@@ -2,6 +2,7 @@
 {-# LANGUAGE DataKinds #-}
 {-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE PolyKinds #-}
+{-# LANGUAGE RoleAnnotations #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 {-# LANGUAGE TypeApplications #-}
 {-# LANGUAGE TypeFamilies #-}
@@ -13,6 +14,8 @@ import Data.TypeMap.Internal.Unsafe
 
 -- | List-backed type-map.
 newtype TypeList d = TypeList [Any]
+
+type role TypeList nominal
 
 -- | Empty list.
 empty :: TypeList '[]
