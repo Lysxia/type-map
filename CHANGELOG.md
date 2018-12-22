@@ -1,3 +1,10 @@
+# 0.1.5.0
+
+- Add role annotations for all the various type maps.
+  Now the parameters have nominal roles.
+
+  Previously, they had phantom roles, which broke uses of `unsafeCoerce`.
+
 # 0.1.4.0
 
 - Add `(<:)` to `Dynamic`. (deepfire)
