@@ -16,6 +16,7 @@ module Data.TypeMap.Dynamic
   , intersection
   , map
   , constantList
+  , collapse
   , traverse
   , OfType
   ) where
