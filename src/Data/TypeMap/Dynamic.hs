@@ -15,6 +15,7 @@ module Data.TypeMap.Dynamic
   , difference
   , intersection
   , map
+  , constantList
   , traverse
   , OfType
   ) where
