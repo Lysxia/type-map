@@ -127,19 +127,19 @@ map f (TypeMap m) = TypeMap (Map.mapWithKey f' m)
   where f' = withTypeRep f (Proxy :: Proxy (ItemFun x y))
 
 -- | Reduce a constant type map into a plain list of values.
-constantList
+toList
   :: forall r
   .  TypeMap (OfType r) -> [r]
-constantList (TypeMap m) = coerce . snd <$> Map.toList m
+toList (TypeMap m) = coerce . snd <$> Map.toList m
   where
     coerce :: Any -> r
     coerce = unsafeCoerce
 
 -- | Collapse a type map into a plain list of values.
-collapse
+toListMap
   :: forall tm r
-  .  (forall t. Proxy t -> Item tm t -> Item (OfType r) t) -> TypeMap tm -> [r]
-collapse f tm = constantList $ map f tm
+  .  (forall t. Proxy t -> Item tm t -> r) -> TypeMap tm -> [r]
+toListMap f tm = toList $ map f tm
 
 -- | Traverse the type map. ('map' with effects.)
 traverse

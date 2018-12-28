@@ -18,8 +18,8 @@ module Data.TypeMap.Dynamic.Alt
   , difference
   , intersection
   , map
-  , constantList
-  , collapse
+  , toList
+  , toListMap
   , traverse
   , OfType
   ) where
@@ -33,8 +33,8 @@ import Data.TypeMap.Internal.Dynamic
   , union
   , difference
   , intersection
-  , constantList
-  , collapse
+  , toList
+  , toListMap
   , OfType
   )
 
