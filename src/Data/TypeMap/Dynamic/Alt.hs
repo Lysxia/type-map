@@ -1,6 +1,8 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 
 -- | Type-application-based interface.
+--
+-- > {-# LANGUAGE TypeApplications #-}
 
 module Data.TypeMap.Dynamic.Alt
   ( -- * Dynamic type maps
