@@ -8,13 +8,12 @@ This package includes:
 - a dynamic type map using GHC's `Typeable` class,
   with a `Proxy`-based API (`Data.TypeMap.Dynamic`)
   or a `TypeApplications`-based API (`Data.TypeMap.Dynamic.Alt`);
+  Supports arbitrary, user-defined mappings between keys and
+  types of values via defunctionalization.
 
 - a static type map, whose type is indexed by its list of keys
   (there are actually multiple implementations with different underlying
   representations (`[]`, `Map`, `Vector`)).
-
-Both variants support arbitrary, user-defined mappings between types and
-values, via defunctionalization.
 
 [Example using the dynamically-typed
 interface](https://github.com/Lysxia/type-map/tree/master/examples/dynamic.hs).
