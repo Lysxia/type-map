@@ -3,8 +3,13 @@
 -- | Type-application-based interface.
 
 module Data.TypeMap.Dynamic.Alt
-  ( TypeMap()
+  ( -- * Dynamic type maps
+
+    TypeMap()
   , Item
+
+    -- ** Basic operations
+
   , empty
   , null
   , size
@@ -14,13 +19,22 @@ module Data.TypeMap.Dynamic.Alt
   , update
   , lookup
   , delete
+
+    -- ** Traversals and folds
+
+  , map
+  , traverse
+  , toList
+  , toListMap
+
+    -- ** Set-like operations
+
   , union
   , difference
   , intersection
-  , map
-  , toList
-  , toListMap
-  , traverse
+
+    -- * Type-level mappings
+
   , OfType
   ) where
 
