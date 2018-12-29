@@ -22,6 +22,7 @@ import qualified Type.Reflection as T
 #else
 import GHC.Prim (Any, Proxy#)
 #endif
+import Prelude hiding (map)
 import Unsafe.Coerce
 
 import qualified Data.Map as Map
@@ -124,6 +125,21 @@ map
   -> TypeMap x -> TypeMap y
 map f (TypeMap m) = TypeMap (Map.mapWithKey f' m)
   where f' = withTypeRep f (Proxy :: Proxy (ItemFun x y))
+
+-- | Reduce a constant type map into a plain list of values.
+toList
+  :: forall r
+  .  TypeMap (OfType r) -> [r]
+toList (TypeMap m) = coerce . snd <$> Map.toList m
+  where
+    coerce :: Any -> r
+    coerce = unsafeCoerce
+
+-- | Collapse a type map into a plain list of values.
+toListMap
+  :: forall tm r
+  .  (forall t. Proxy t -> Item tm t -> r) -> TypeMap tm -> [r]
+toListMap f tm = toList $ map f tm
 
 -- | Traverse the type map. ('map' with effects.)
 traverse
