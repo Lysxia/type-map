@@ -1,7 +1,0 @@
-resolver: lts-12.17
-packages:
-- '.'
-- './examples/'
-  # extra-deps: []
-  # flags: {}
-  # extra-package-dbs: []

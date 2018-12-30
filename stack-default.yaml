@@ -1,0 +1,6 @@
+# stack.yaml template for reference
+# cp stack-default.yaml stack.yaml
+resolver: lts-13.0
+packages:
+- '.'
+- './examples/'
