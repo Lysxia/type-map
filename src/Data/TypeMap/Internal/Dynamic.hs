@@ -87,6 +87,15 @@ update t f (TypeMap m) = TypeMap (Map.update (coerce f) (typeRep t) m)
     coerce :: (Item x t -> Maybe (Item x t)) -> (Any -> Maybe Any)
     coerce = unsafeCoerce
 
+-- | Update a (possibly absent) element indexed by type @t@.
+alter
+  :: forall t x proxy
+  .  Typeable t => proxy t -> (Maybe (Item x t) -> Maybe (Item x t)) -> TypeMap x -> TypeMap x
+alter t f (TypeMap m) = TypeMap (Map.alter (coerce f) (typeRep t) m)
+  where
+    coerce :: (Maybe (Item x t) -> Maybe (Item x t)) -> (Maybe Any -> Maybe Any)
+    coerce = unsafeCoerce
+
 -- | Lookup an element indexed by type @t@.
 lookup
   :: forall t x proxy
