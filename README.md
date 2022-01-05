@@ -1,4 +1,4 @@
-Type-indexed maps [![Hackage](https://img.shields.io/hackage/v/type-map.svg)](https://hackage.haskell.org/package/type-map) [![Build Status](https://travis-ci.org/Lysxia/type-map.svg)](https://travis-ci.org/Lysxia/type-map)
+Type-indexed maps [![Hackage](https://img.shields.io/hackage/v/type-map.svg)](https://hackage.haskell.org/package/type-map) [![Build status](https://github.com/Lysxia/type-map/actions/workflows/haskell-ci.yml/badge.svg)](https://github.com/Lysxia/type-map/actions)
 =================
 
 Maps whose keys are types.
