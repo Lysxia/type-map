@@ -14,6 +14,7 @@ module Data.TypeMap.Dynamic
   , insert
   , (<:)
   , update
+  , alter
   , lookup
   , delete
 
