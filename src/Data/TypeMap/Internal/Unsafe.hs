@@ -68,7 +68,7 @@ unsafeCons
   .  (Coercible (f Any) (m d), Coercible (f Any) (m ('(a, b) ': d)))
   => (forall c. c -> f c -> f c)
   -> b -> m d -> m ('(a, b) ': d)
-unsafeCons = unsafeCoerce
+unsafeCons = \x -> unsafeCoerce x
 
 -- | Helper to define @snoc@ functions.
 unsafeSnoc
@@ -76,4 +76,4 @@ unsafeSnoc
   .  (Last d ~ '(a, b), Coercible (f Any) (m (Init d)), Coercible (f Any) (m d))
   => (forall c. f c -> c -> f c)
   -> m (Init d) -> b -> m d
-unsafeSnoc = unsafeCoerce
+unsafeSnoc = \x -> unsafeCoerce x
