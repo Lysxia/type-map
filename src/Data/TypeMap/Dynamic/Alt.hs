@@ -19,6 +19,7 @@ module Data.TypeMap.Dynamic.Alt
   , (<:)
   , at
   , update
+  , alter
   , lookup
   , delete
 
